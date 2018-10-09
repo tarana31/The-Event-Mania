@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TheEventMania</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top" style="background-color:rgba(99,187,59,0.8);">
+      <div class="container-fluid">
+
+        <div class="navbar-header">
+          <%# <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button> %>
+          <div class="navbar-brand">
+            <%= image_tag('mania.png', width: "95px", class: "img-responsive")  %>
+          </div>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+          <ul class="nav navbar-nav">
+            <li >
+              <%= link_to events_path do%>
+              Events <%= Event.all.size %>
+              <%end%>
+            </li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+          
+          <% if user_signed_in? %>
+            <li > <a > <%= current_user.email %> </a> </li> 
+            <li>
+              <%= link_to "Account Setting", edit_user_registration_path %> 
+            </li>
+            <li>
+              <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to "Login", new_user_session_path %>
+            </li>
+            <li>
+              <%= link_to "Register", new_user_registration_path %>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+<% end %>
+   <%= yield %> 
+
+</body>
+</html>

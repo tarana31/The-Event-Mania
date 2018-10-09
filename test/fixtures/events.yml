@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  location: MyString
+  date: 2018-10-08 12:38:12
+  entry_fee: MyString
+  user_id: 1
+  avatar: MyString
+
+two:
+  name: MyString
+  description: MyText
+  location: MyString
+  date: 2018-10-08 12:38:12
+  entry_fee: MyString
+  user_id: 1
+  avatar: MyString
