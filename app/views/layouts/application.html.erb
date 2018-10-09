@@ -11,20 +11,14 @@
 
   <body>
   
-    <nav class="navbar navbar-default navbar-fixed-top" style="background-color:rgba(99,187,59,0.8);">
+    <nav class="navbar navbar-default navbar-fixed-top" style="background-color:rgba(99,187,59,1.0);">
       <div class="container-fluid">
 
-        <div class="navbar-header">
-          <%# <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button> %>
+        
           <div class="navbar-brand">
             <%= image_tag('mania.png', width: "95px", class: "img-responsive")  %>
           </div>
-        </div>
+      
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
           <ul class="nav navbar-nav">
@@ -32,6 +26,9 @@
               <%= link_to events_path do%>
               Events <%= Event.all.size %>
               <%end%>
+            </li>
+            <li> 
+              <p id="notice"><%= notice %></p>
             </li>
           </ul>
 
@@ -47,17 +44,19 @@
             </li>
           <% else %>
             <li>
-              <%= link_to "Login", new_user_session_path %>
+              <%= link_to "Login", '/login' %>
             </li>
             <li>
-              <%= link_to "Register", new_user_registration_path %>
+              <%= link_to "Register", '/signup' %>
             </li>
           
         </ul>
       </div>
     </div>
+    <% end %>
   </nav>
-<% end %>
+
+
    <%= yield %> 
 
 </body>

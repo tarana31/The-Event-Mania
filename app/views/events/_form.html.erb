@@ -1,52 +1,53 @@
+<div class="container">
 <%= form_with(model: event, local: true) do |form| %>
   <% if event.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
-      <ul>
       <% event.errors.full_messages.each do |message| %>
+      <ul>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :location %>
-    <%= form.text_field :location %>
+    <%= form.text_field :location, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :date %>
-    <%= form.datetime_select :date %>
+    <%= form.datetime_select :date, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :entry_fee %>
-    <%= form.text_field :entry_fee %>
+    <%= form.text_field :entry_fee,class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id %>
+  <div class="form-group">
+    <%= form.hidden_field :user_id, :value => current_user.id %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :avatar %>
-    <%= form.text_field :avatar %>
+    <%= form.file_field :avatar, class: "form-control" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  
+    <%= form.submit "Submit", class: "btn btn-success" %>
   </div>
 <% end %>
+</div>

@@ -1,4 +1,6 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
+
 
 <p>
   <strong>Name:</strong>
@@ -32,8 +34,11 @@
 
 <p>
   <strong>Avatar:</strong>
-  <%= @event.avatar %>
+  <% if @event.avatar.attached? %>
+    <%= image_tag(url_for(@event.avatar)) %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
+</div>
