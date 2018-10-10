@@ -35,12 +35,14 @@
 
               <div class="row">
         	      <div class="col-sm-6 col-md-6 ">
-        		      <p class="text-center well well-sm"> <small><%= event.date %></small></p>
+        		      <p class="text-center well well-sm"> <%= event.date.strftime("%m/%d/%Y") %></p>
         	      </div>
-        	    
-                <div class="col-sm-6 col-md-6" style="margin-top:2px">
-        		      <p class="text-center"><a href="/events/<%= "#{event.id}" %>" class="btn btn-danger" role="button" style="border: none; color: white;"> RSVP </a></p>
-        	      </div>
+
+                <% unless Rsvp.exists?(event: event.id, user: current_user)%>
+                  <div class="col-sm-6 col-md-6" style="margin-top:2px">
+        		        <p class="text-center"><a href="/events/<%= "#{event.id}" %>" class="btn btn-danger" role="button" style="border: none; color: white;"> RSVP </a></p>
+        	        </div>
+                <% end %>
               </div>
             </div>
         </div>

@@ -1,44 +1,38 @@
 <div class="container">
-<p id="notice"><%= notice %></p>
+  <div class="row">
+    <h2><%= @event.name %></h2>
+  
+    <div class="col-md-5">
+      <p><b>
+        <strong>Description:</strong>
+        <%= @event.description %>
+      </p></b>
 
+      <p>
+        <strong>Location:</strong>
+        <%= @event.location %>
+      </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @event.name %>
-</p>
+      <p>
+        <strong>Date:</strong>
+      <%= @event.date %>
+      </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
+      <p>
+        <strong>Entry fee:</strong>
+        <%= @event.entry_fee %>
+      </p>
+    </div>
+    
+      <p>
+        <% if @event.avatar.attached? %>
+        <%= image_tag(url_for(@event.avatar), height: "350px", width: "500px") %>
+        <% end %>
+      </p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @event.location %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @event.date %>
-</p>
-
-<p>
-  <strong>Entry fee:</strong>
-  <%= @event.entry_fee %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @event.user_id %>
-</p>
-
-<p>
-  <strong>Avatar:</strong>
-  <% if @event.avatar.attached? %>
-    <%= image_tag(url_for(@event.avatar)) %>
-  <% end %>
-</p>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+      <p class="text-center">
+        <a href=<%= new_event_rsvp_path(@event) %> class="btn btn-success" role="button" style="border: none; color: white;"> RSVP </a>
+      </p>
+      <%= link_to 'Edit', edit_event_path(@event) %> |
+      <%= link_to 'Back', events_path %>
 </div>

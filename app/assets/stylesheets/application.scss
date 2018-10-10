@@ -19,15 +19,19 @@
 body {
     // background-image: url("lantern.gif");
     background-size: cover;
-    background-color: rgb(241, 227, 95)
+    background-color: rgb(224, 233, 232)
 }
 .nav.navbar-nav li{
-    color: rgb(238, 227, 227);
+    color: rgb(58, 56, 56);
     font-weight: bold;
 }
 
-ul.nav a:hover { 
+ul.nav a { 
     color: #fff !important; 
+}
+
+ul.nav a:hover { 
+    color: rgb(238, 5, 141) !important; 
 }
 
 .container {
@@ -43,6 +47,10 @@ ul.nav a:hover {
     overflow: hidden;
     position: relative;
 
+}
+
+.btn.btn-primary.btn-lg {
+    color: white;
 }
 
 
