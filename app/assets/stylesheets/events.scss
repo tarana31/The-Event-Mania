@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .jumbotron.jumbotron-events {
-    background-image: url("jumbotron-event.png");
+    background-image: image-url("jumbotron-event.png");
     background-size: cover;
 }
 
@@ -21,3 +21,4 @@
 .btn.btn-info {
     color: white;
 }
+

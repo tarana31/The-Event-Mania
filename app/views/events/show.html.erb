@@ -4,14 +4,12 @@
   
     <div class="col-md-5">
       <p><b>
-        <strong>Description:</strong>
-        <%= @event.description %>
-      </p></b>
+        <h4><strong>Description:</strong></h4></b></p>
+        <p><h4><%= @event.description %></h4></p>
 
-      <p>
-        <strong>Location:</strong>
-        <%= @event.location %>
-      </p>
+      <p><b>
+        <h4><strong>Location:</strong></h4></b></p>
+        <p><h4><%= @event.location %></h4></p>
 
       <p>
         <strong>Date:</strong>
@@ -22,17 +20,19 @@
         <strong>Entry fee:</strong>
         <%= @event.entry_fee %>
       </p>
-    </div>
     
+      <p class="text-center">
+          <a href=<%= new_event_rsvp_path(@event) %> class="btn btn-success" role="button" style="border: none; color: white;"> RSVP </a>
+          <a href=<%= edit_event_path(@event) %> class="btn btn-success" role="button" style="border: none; color: white;"> EDIT </a>
+          <a href=<%= events_path %> class="btn btn-success" role="button" style="border: none; color: white;"> BACK </a>
+      </p>
+    </div>
+
+    <div class="row">
       <p>
         <% if @event.avatar.attached? %>
         <%= image_tag(url_for(@event.avatar), height: "350px", width: "500px") %>
         <% end %>
       </p>
-
-      <p class="text-center">
-        <a href=<%= new_event_rsvp_path(@event) %> class="btn btn-success" role="button" style="border: none; color: white;"> RSVP </a>
-      </p>
-      <%= link_to 'Edit', edit_event_path(@event) %> |
-      <%= link_to 'Back', events_path %>
+    </div>
 </div>

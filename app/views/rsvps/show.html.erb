@@ -1,10 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container">
-  <p>Thank you for your interest in <%= @rsvp.event.name %></p>
+<p><h2>Thank You for confirming your attendance </h2></p>
 
-  <p>See you on: <%= @rsvp.event.date %> <br/>
-   at: <%= @rsvp.event.location %> </p>
-   
-
+  <div class="row">
+    <div class="col-md-4">
+      <p><h4><strong>Event Name:</strong> <b><%= @rsvp.event.name %></b> </h4></p>
+      <p><h4><strong>See you on:</strong> <%= @rsvp.event.date.strftime("%m/%d/%Y %H:%M %p") %></h4></p>
+        <p><h4><strong> Where:</strong> <input id="address" type="textbox" value="<%= @rsvp.event.location %>"> </p>
+    </div>
+    <div class="col-md-6">
+      <div id="map" style='width: 600px; height: 400px;'></div>
+    </div>
+  </div>
 </div>

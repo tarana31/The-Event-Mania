@@ -1,0 +1,51 @@
+users --- has many events
+        -- has many rsvps
+user_id/email
+password
+
+
+Events -- has many users
+       -- has many rsvps
+name
+description
+avatar 
+location
+date 
+entry_fee 
+user_id // event_id
+
+
+Rsvp --belongs to users
+     -- belongs to events
+name 
+email -- default from users table
+no. of guests
+event_id // user_id
+
+
+gems used:
+bootstrap
+geocoder -- geocoding service 
+gmap4rails -- display map
+underscore-rails -- underscore.js javascript library
+devise
+
+to do list :
+
+venues -- has_many events
+       -- belongs to user
+name
+address
+avatar
+user_id
+
+allocate roles like
+admin -- create events
+users --view events/rsvp events
+      -- book venues
+
+categories for events
+
+so can get a dropdown for events like food music education sports education etc
+
+categories for events in accordance to cities.

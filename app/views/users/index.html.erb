@@ -1,1 +1,43 @@
-hey
+<div class="jumbotron jumbotron-myevents">
+  <div class="container">
+    <div class="page-header text-center">
+		  <h3>My Upcoming Events</h3>
+    </div>
+
+    <div class="text-center">
+    	<%= form_tag(events_path, method: "get", class: "form-inline") do %>
+	    	<%= text_field_tag :search, params[:search], prompt: "Enter a keyword...", class: "form-control" %>
+			<%= submit_tag "Search",class: "btn btn-default" %>
+		<% end %>
+        <br/>
+        <%= link_to "Create Event", new_event_path, class: "btn btn-info" %>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+    <% if Rsvp.exists?(user: current_user)%>
+    <div class="row">
+	    <% current_user.events.each do |event|%>
+	    <div class="col-12 col-sm-6 col-md-4 col-lg-4"> 
+          <div class="card">
+	      	    <%= link_to image_tag(url_for(event.avatar), height: "150px", width: "100%"), event_path(event) %>
+		      
+                <div class="row">
+                    <h4 class="text-center"><%= link_to "#{event.name}", event_path(event) %></h4>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 ">
+        		        <p class="text-center well well-sm"> <%= event.date.strftime("%m/%d/%Y") %></p>
+        	        </div>
+            
+        	        <div class="col-sm-6 col-md-6 ">
+        	            <a href="/events/<%= "#{event.id}" %>" class="btn btn-danger" role="button" style="border: none; color: white;"> View </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%end%>
+    </div>
+    <%end%>
+</div>

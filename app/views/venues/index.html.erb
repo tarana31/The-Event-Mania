@@ -1,0 +1,47 @@
+<div class="jumbotron jumbotron-venues">
+  <div class="container">
+    <div class="page-header text-center">
+		  <h3>All Locale</h3>
+    </div>
+
+    <div class="text-center">
+      <%= link_to "Create Venue", new_venue_path, class: "btn btn-info" %>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  
+    <div class="row">
+	    <% @venues.each do |venue|%>
+	    <div class="col-12 col-sm-6 col-md-4 col-lg-4"> 
+          <div class="card">
+	      	  <%= link_to image_tag(url_for(venue.avatar), height: "150px", width: "100%"), venue_path(venue) %>
+		      
+              <div class="row">
+                <h4 class="text-center"><%= link_to "#{venue.name}", venue_path(venue) %></h4>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <p class="text-center">
+                    <%= link_to 'Show', venue %>
+                    <%= link_to 'Edit', edit_venue_path(venue) %>
+                    <%= link_to 'Destroy', venue, method: :delete, data: { confirm: 'Are you sure?' } %>
+                  </p>
+                </div>
+              </div>
+
+              <div class="row">  
+                <div class="col-sm-6 col-md-12" style="margin-top:2px">
+        		      <p class="text-center"><a href="/venues/<%= "#{venue.id}" %>" class="btn btn-danger" role="button" style="border: none; color: white;"> Show </a>
+        	        <a href="/venues/<%= "#{venue.id}" %>" class="btn btn-danger" role="button" style="border: none; color: white;"> Book </a></p>
+                </div>
+              </div>
+          </div>
+        </div>
+      <%end%>
+    </div>
+</div>
+
+

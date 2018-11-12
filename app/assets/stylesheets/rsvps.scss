@@ -3,6 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .jumbotron.jumbotron-rsvp {
-    background-image: url("rsvp.jpg");
+    background-image: image-url("rsvp.jpg");
     background-size: cover;
 }
+
+.jumbotron.jumbotron-myevents {
+    background-image: image-url("myeventspage.jpg");
+    background-size: cover;
+}
+
+.page-header.text-center {
+    color: white;
+}
+

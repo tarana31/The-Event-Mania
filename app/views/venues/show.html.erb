@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <h2><%= @venue.name %></h2>
+  
+    <div class="col-md-5">
+      <p><b>
+        <h4><strong>Address:</strong></h4></b></p>
+        <p><h4><%= @venue.address %></h4></p>
+    
+      <p>
+        <h4><strong>User:</strong></h4>
+        </h4><%= @venue.user_id %></h4>
+      </p>
+
+      <p class="text-center">
+          <a href=<%= '/venues' %> class="btn btn-danger" role="button" style="border: none; color: white;"> Book </a>
+          <a href=<%= edit_venue_path(@venue) %> class="btn btn-success" role="button" style="border: none; color: white;"> EDIT </a>
+          <a href=<%= '/venues' %> class="btn btn-success" role="button" style="border: none; color: white;"> BACK </a>
+      </p>
+    </div>
+
+    <div class="row">
+      <p>
+        <% if @venue.avatar.attached? %>
+        <%= image_tag(url_for(@venue.avatar), height: "350px", width: "500px") %>
+        <% end %>
+      </p>
+    </div>
+</div>
+

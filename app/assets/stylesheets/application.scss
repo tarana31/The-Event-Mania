@@ -18,8 +18,9 @@
 
 body {
     // background-image: url("lantern.gif");
-    background-size: cover;
-    background-color: rgb(224, 233, 232)
+    // background-size: cover;
+    background-color: rgb(224, 233, 232);
+    height: 100%;
 }
 .nav.navbar-nav li{
     color: rgb(58, 56, 56);
@@ -36,10 +37,11 @@ ul.nav a:hover {
 
 .container {
     margin-top: 80px;
+    padding-bottom: 60px;
 }
 
 .jumbotron.jumbotron-signin {
-    background-image: url("mainpageimage.jpg");  
+    background-image: image-url("mainpageimage.jpg");  
     background-size: cover;
     color: #fff ;
     width: 100%;
@@ -53,6 +55,18 @@ ul.nav a:hover {
     color: white;
 }
 
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+}
 
 
 
+#map {
+    height: 70%;
+    width: 80%;
+  }
+  
+  

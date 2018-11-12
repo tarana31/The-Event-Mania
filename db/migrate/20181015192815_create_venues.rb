@@ -1,0 +1,12 @@
+class CreateVenues < ActiveRecord::Migration[5.2]
+  def change
+    create_table :venues do |t|
+      t.string :name
+      t.string :address
+      t.integer :user_id
+      t.string :avatar
+
+      t.timestamps
+    end
+  end
+end

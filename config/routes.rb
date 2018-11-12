@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :venues
   resources :events do 
     resources :rsvps
   end
@@ -8,7 +9,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   get '/events'  => 'events#index'
-
+  get '/users'  => 'users#index'
+  get '/venues' => 'venues#index'
   devise_scope :user do
     get '/login', to: "devise/sessions#new"
 
